@@ -1,112 +1,148 @@
-@media (max-width: 900px) {
-    .gallery {
-        grid-template-columns: repeat(2, 1fr); /* 2 per row */
-    }
-}
-
-@media (max-width: 600px) {
-    .gallery {
-        grid-template-columns: 1fr; /* 1 per row */
-    }
-}
-
-
+/* ========================
+   GENERAL STYLING
+======================== */
 body {
-    background-color: rgb(39, 3, 3);
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(90deg, #ff4d4d, #990000);
+    color: white;
 }
 
-
+/* ========================
+   NAVIGATION
+======================== */
 nav {
     background-image: url(image/rubaitul-azad-ZNMNWL-Nu4I-unsplash.jpg);
     background-repeat: no-repeat;
-    background-size:100% 100%;
+    background-size: 100% 100%;
     height: 150px;
     padding: 30px;
-    font-size:xx-large;
-    margin: auto;
+    font-size: xx-large;
     text-align: center;
     border-radius: 5px;
 }
 
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    transition: color 0.3s ease;
+}
 
+nav a:hover {
+    color: #ffd700;
+}
 
-.gallery{
+/* Mobile nav layout */
+@media (max-width: 600px) {
+    nav {
+        height: auto;
+        padding: 15px;
+    }
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+/* ========================
+   GALLERY GRID
+======================== */
+.gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
     justify-content: center;
 }
-.gallery img{
-   max-width: 100%;
-}
 
-
-
-.flip-box{
+/* ========================
+   FLIP BOX
+======================== */
+.flip-box {
     background-color: transparent;
     width: 100%;
-     max-width: 100%;
-     aspect-ratio: 4/2.1;
-     border: 1px solid #f1f1f1;
-     border-radius: 12px;
+    max-width: 100%;
+    aspect-ratio: 4/2.1;
+    border: 1px solid #f1f1f1;
+    border-radius: 12px;
     perspective: 1000px;
+    margin: 0 auto;
 }
 
-.flip-box-back img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.flip-box-inner{
+.flip-box-inner {
     position: relative;
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.8s;
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
     transform-style: preserve-3d;
 }
 
-.flip-box:hover .flip-box-inner{
+.flip-box:hover .flip-box-inner {
     transform: rotateY(180deg);
 }
 
-.flip-box-front, .flip-box-back{
+.flip-box-front, .flip-box-back {
     position: absolute;
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-
+    border-radius: 12px;
+    overflow: hidden;
 }
 
-.flip-box-front{
+.flip-box-front {
     background-color: #bbb;
     color: black;
-    }
-     
+}
 
-.flip-box-back{
+.flip-box-front img,
+.flip-box-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.flip-box-back {
     background-color: rgb(3, 28, 78);
     color: white;
-   transform: rotateY(180deg);
-   display: flex;
+    transform: rotateY(180deg);
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 10px;
-
 }
 
- .thor {
+/* ========================
+   IMAGE HOVER EFFECT
+======================== */
+.gallery img {
+    max-width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* ========================
+   HERO SPECIFIC BACKGROUND
+======================== */
+.thor {
     background-image: url(image/manuel-salinas-1pZqh6NVHDc-unsplash.jpg);
     background-repeat: no-repeat;
-    background-size:100% 100%;
+    background-size: 100% 100%;
 }
 
-a{
+/* ========================
+   GLOBAL LINKS
+======================== */
+a {
     text-decoration: none;
-    
 }
- 
